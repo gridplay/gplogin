@@ -4,7 +4,7 @@ use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
 class Provider extends AbstractProvider {
     public const IDENTIFIER = 'GPLogin';
-    protected $scopes = ['user'];
+    protected $scopes = ['users'];
     protected $scopeSeparator = ' ';
     protected function getAuthUrl($state) {
         return $this->buildAuthUrlFromBase(
@@ -29,9 +29,10 @@ class Provider extends AbstractProvider {
     }
     protected function mapUserToObject(array $user) {
         return (new User())->setRaw($user)->map([
-            'id'       => $user['id'],
-            'name'     => $user['name'],
-            'sl_avatars'     => $user['sl_avatars']
+            'id'         => $user['id'],
+            'name'       => $user['name'],
+            'email'      => $user['email'],
+            'sl_avatars' => $user['sl_avatars']
         ]);
     }
     protected function getTokenFields($code) {
