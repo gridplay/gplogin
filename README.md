@@ -49,3 +49,9 @@ $user->id
 - ``sl_avatars``
 
 sl_avatars has a array of second life avatars linked to the account
+```php
+$slavis = [];
+foreach($user->sl_avatars as $sl) {
+    $slavis[] = ['name' => $sl->name, 'uuid' => $sl->uuid];
+}
+```
