@@ -26,7 +26,7 @@ Add the event to your `listen[]` array in `app/Providers/EventServiceProvider`. 
 protected $listen = [
     \SocialiteProviders\Manager\SocialiteWasCalled::class => [
         // ... other providers
-        \GPLogin\GPLoginExtendSocialite::class.'@handle',
+        \GridPlay\GPLogin\GPLoginExtendSocialite::class.'@handle',
     ],
 ];
 ```
@@ -53,7 +53,7 @@ sl_avatars has a array of second life avatars linked to the account
 ```php
 $slavis = [];
 foreach($user->sl_avatars as $sl) {
-    $slavis[] = ['name' => $sl->name, 'uuid' => $sl->uuid];
+    $slavis[] = ['name' => $sl['name'], 'uuid' => $sl['uuid']];
 }
 ```
 The server ONLY returns data for email verified accounts!
