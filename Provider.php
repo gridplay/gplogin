@@ -3,7 +3,7 @@ namespace GPLogin;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
 class Provider extends AbstractProvider {
-    public const IDENTIFIER = 'GPLogin';
+    public const IDENTIFIER = 'gplogin';
     protected $scopes = ['users'];
     protected $scopeSeparator = ' ';
     protected function getAuthUrl($state) {
