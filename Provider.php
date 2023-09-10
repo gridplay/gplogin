@@ -1,6 +1,6 @@
 <?php
 
-namespace GPLogin;
+namespace GridPlay\GPLogin;
 
 use GuzzleHttp\RequestOptions;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
@@ -18,7 +18,7 @@ class Provider extends AbstractProvider
     /**
      * {@inheritdoc}
      */
-    protected $consent = true;
+    protected $consent = false;
 
     /**
      * {@inheritdoc}
@@ -95,7 +95,7 @@ class Provider extends AbstractProvider
         return (new User())->setRaw($user)->map([
             'id'         => $user['id'],
             'name'       => $user['name'],
-            'email'      => $user['email'] ?? null,
+            'email'      => $user['email'],
             'sl_avatars' => $user['sl_avatars'],
         ]);
     }

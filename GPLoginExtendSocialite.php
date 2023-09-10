@@ -1,5 +1,5 @@
 <?php
-namespace GPLogin;
+namespace GridPlay\GPLogin;
 use SocialiteProviders\Manager\SocialiteWasCalled;
 class GPLoginExtendSocialite {
     public function handle(SocialiteWasCalled $socialiteWasCalled) {
