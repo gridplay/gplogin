@@ -18,7 +18,7 @@ class Provider extends AbstractProvider
     /**
      * {@inheritdoc}
      */
-    protected $consent = false;
+    protected $consent = true;
 
     /**
      * {@inheritdoc}
