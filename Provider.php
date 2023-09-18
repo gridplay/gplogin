@@ -13,16 +13,6 @@ class Provider extends AbstractProvider
     /**
      * {@inheritdoc}
      */
-    protected $scopes = ['users'];
-
-    /**
-     * {@inheritdoc}
-     */
-    protected $consent = true;
-
-    /**
-     * {@inheritdoc}
-     */
     protected $scopeSeparator = ' ';
 
     /**
@@ -34,32 +24,6 @@ class Provider extends AbstractProvider
             'https://gridplay.net/oauth/authorize',
             $state
         );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getCodeFields($state = null)
-    {
-        $fields = parent::getCodeFields($state);
-
-        if (! $this->consent) {
-            $fields['prompt'] = 'none';
-        }
-
-        return $fields;
-    }
-
-    /**
-     * Prompt for consent each time or not.
-     *
-     * @return $this
-     */
-    public function withConsent()
-    {
-        $this->consent = true;
-
-        return $this;
     }
 
     /**
@@ -98,13 +62,5 @@ class Provider extends AbstractProvider
             'email'      => $user['email'],
             'sl_avatars' => $user['sl_avatars'],
         ]);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function additionalConfigKeys()
-    {
-        return [];
     }
 }
