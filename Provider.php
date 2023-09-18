@@ -8,7 +8,7 @@ use SocialiteProviders\Manager\OAuth2\User;
 
 class Provider extends AbstractProvider
 {
-    public const IDENTIFIER = 'GPLOGIN';
+    public const IDENTIFIER = 'gplogin';
 
     /**
      * {@inheritdoc}
