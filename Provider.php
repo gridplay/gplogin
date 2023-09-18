@@ -1,45 +1,22 @@
 <?php
-
 namespace GridPlay\GPLogin;
-
 use GuzzleHttp\RequestOptions;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
-
-class Provider extends AbstractProvider
-{
+class Provider extends AbstractProvider {
     public const IDENTIFIER = 'GPLOGIN';
-
-    /**
-     * {@inheritdoc}
-     */
     protected $scopes = ['users'];
     protected $scopeSeparator = ' ';
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getAuthUrl($state)
-    {
+    protected function getAuthUrl($state) {
         return $this->buildAuthUrlFromBase(
             'https://gridplay.net/oauth/authorize',
             $state
         );
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getTokenUrl()
-    {
+    protected function getTokenUrl() {
         return 'https://gridplay.net/oauth/token';
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getUserByToken($token)
-    {
+    protected function getUserByToken($token) {
         $response = $this->getHttpClient()->get(
             'https://gridplay.net/api/users',
             [
@@ -51,12 +28,7 @@ class Provider extends AbstractProvider
 
         return json_decode((string) $response->getBody(), true);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function mapUserToObject(array $user)
-    {
+    protected function mapUserToObject(array $user) {
         return (new User())->setRaw($user)->map([
             'id'         => $user['id'],
             'name'       => $user['name'],
