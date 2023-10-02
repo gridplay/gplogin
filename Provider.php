@@ -33,7 +33,6 @@ class Provider extends AbstractProvider {
             'id'         => $user['id'],
             'name'       => $user['name'],
             'email'      => $user['email'],
-            'sl_avatars' => $user['sl_avatars'],
         ]);
     }
 }
