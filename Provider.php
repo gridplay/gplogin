@@ -9,16 +9,16 @@ class Provider extends AbstractProvider {
     protected $scopeSeparator = ' ';
     protected function getAuthUrl($state) {
         return $this->buildAuthUrlFromBase(
-            'https://gridplay.net/oauth/authorize',
+            'https://sl.gridplay.net/oauth/authorize',
             $state
         );
     }
     protected function getTokenUrl() {
-        return 'https://gridplay.net/oauth/token';
+        return 'https://sl.gridplay.net/oauth/token';
     }
     protected function getUserByToken($token) {
         $response = $this->getHttpClient()->get(
-            'https://gridplay.net/api/users',
+            'https://sl.gridplay.net/api/users',
             [
                 RequestOptions::HEADERS => [
                     'Authorization' => 'Bearer '.$token,
@@ -32,7 +32,7 @@ class Provider extends AbstractProvider {
         return (new User())->setRaw($user)->map([
             'id'         => $user['id'],
             'name'       => $user['name'],
-            'email'      => $user['email'],
+            'uuid'       => $user['uuid'],
         ]);
     }
 }

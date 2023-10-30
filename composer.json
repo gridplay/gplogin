@@ -1,6 +1,6 @@
 {
   "name": "gridplay/gplogin",
-  "description": "GridPlay OAuth2 Provider for Laravel Socialite",
+  "description": "GridPlay SL OAuth2 Provider for Laravel Socialite",
   "license": "MIT",
   "authors": [
     {

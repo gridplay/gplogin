@@ -46,4 +46,4 @@ $user->id
 ```
 - ``id``
 - ``name``
-- ``email``
+- ``uuid``
